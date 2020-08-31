@@ -6,8 +6,8 @@ import org.openqa.selenium.support.FindBy;
 
 public class Actions extends PageOBJs {
 
-    private final String USERNAME = "lila_1872";
-    private final String PASSWORD = "kik90as87";
+    private final String USERNAME = "username";
+    private final String PASSWORD = "";
 
     @FindBy(name = "username")
     private WebElement usernameField;
