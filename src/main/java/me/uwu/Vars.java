@@ -1,3 +1,5 @@
+package me.uwu;
+
 public class Vars {
 
     final static String BASE_URL = "https://www.instagram.com/";
