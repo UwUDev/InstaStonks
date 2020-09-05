@@ -1,5 +1,5 @@
 @echo off
-TITLE Insta stonks by UwU#0001 (read please)
+TITLE InstaStonks by UwU#0001 (read please)
 color c
 echo " /$$$$$$                       /$$                /$$$$$$   /$$                         /$$                
 echo "|_  $$_/                      | $$               /$$__  $$ | $$                        | $$                
@@ -16,7 +16,7 @@ echo "  Make sure Java & Chrome (ver. 85) is installed on your computer
 echo "  If Java is installed press ENTER , if its not, close this window and install it
 pause
 cls
-TITLE Insta stonks by UwU#0001 (accept terms)
+TITLE InstaStonks by UwU#0001 (accept terms)
 color 6
 echo " /$$$$$$                       /$$                /$$$$$$   /$$                         /$$                
 echo "|_  $$_/                      | $$               /$$__  $$ | $$                        | $$                
@@ -32,13 +32,13 @@ echo "  By pressing ENTER again you take your own responsability if your account
 echo "  If you wont take the risk, close this program.
 pause
 color a
-TITLE Insta stonks by UwU#0001 (Staring ...)
+TITLE InstaStonks by UwU#0001 (Staring ...)
 ping 192.0.2.1 -n 1 -w 700 >nul
 ping 192.0.2.1 -n 1 -w 700 >nul
 ping 192.0.2.1 -n 1 -w 700 >nul
 ping 192.0.2.1 -n 1 -w 700 >nul
 cls
-TITLE Insta stonks by UwU#0001
+TITLE InstaStonks by UwU#0001
 color b
 cd core
 java -jar InstaStonks.jar
