@@ -17,10 +17,20 @@ public class Main {
     public static void main(String[] args) throws InterruptedException {
 
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter username : ");
-        user = sc.nextLine();
-        System.out.println("Enter password : ");
-        pass = sc.nextLine();
+
+        if(args[0].equalsIgnoreCase("--username") || args[0].equalsIgnoreCase("--mail")){
+            user = args[1].toString();
+        }else{
+            System.out.println("Enter username : ");
+            user = sc.nextLine();
+        }
+
+        if(args[2].equalsIgnoreCase("--password") || args[2].equalsIgnoreCase("--pass")){
+            pass = args[3].toString();
+        }else{
+            System.out.println("Enter password : ");
+            pass = sc.nextLine();
+        }
 
         System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStarting ...");
 
