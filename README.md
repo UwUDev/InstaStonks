@@ -15,7 +15,7 @@ Make sure you have Java 8 or higher and chrome ver. 85 (lastest) before starting
 
 ## Running
 
-First download the lastest release [Here](https://github.com/UwU0001/InstaStonks/releases/latest/download/InstaStonks.zip)
+First download the lastest release [Here](https://github.com/UwUDev/InstaStonks/releases/latest/download/InstaStonks.zip)
 
 Unzip the files to get this result
 
