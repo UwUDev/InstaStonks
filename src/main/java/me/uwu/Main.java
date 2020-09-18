@@ -1,10 +1,13 @@
 package me.uwu;
 
+import me.uwu.utils.Tags;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import me.uwu.utils.Actions;
 
+import java.io.IOException;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -20,7 +23,7 @@ public class Main {
 
     private static final WebDriver driver = new ChromeDriver();
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException, IOException {
 
         Scanner sc = new Scanner(System.in);
 
@@ -52,7 +55,8 @@ public class Main {
             delay5 = 18000;
         }
 
-        String tag = null;
+        List<String> tags = Tags.getTags();
+
         System.setProperty("webdriver.chrome.driver", Vars.CHROME_DRIVER_LOCATION);
 
         driver.get("https://www.instagram.com/");
@@ -77,106 +81,75 @@ public class Main {
 
         while (true) {
 
-            state ++;
+            for (String tag : tags) {
 
-            switch (state) {
-                case 1:
-                    tag = "newyork";
-                    break;
-                case 2:
-                    tag = "foodporn";
-                    break;
-                case 3:
-                    tag = "summer";
-                    break;
-                case 4:
-                    tag = "selfie";
-                    break;
-                case 5:
-                    tag = "summermakeup";
-                    break;
-                case 6:
-                    tag = "summerslam";
-                    break;
-                case 7:
-                    tag = "fitness";
-                    break;
-                case 8:
-                    tag = "food";
-                    break;
-                case 9:
-                    tag = "cute";
-                    break;
-                case 10:
-                    tag = "instagram";
-                    state=0;
-                    break;
-            }
+                System.out.println("Switching to #" + tag);
 
-            System.out.println("Switching to #" + tag);
-            driver.get("https://www.instagram.com/explore/tags/" + tag + "/");
+                driver.get("https://www.instagram.com/explore/tags/" + tag);
 
-            Thread.sleep(delay3);
+                Thread.sleep(delay3);
 
-            action.openLastestPost();
+                action.openLastestPost();
 
-            for (int i = 1; i <= 7; i++) {
-                int errors = 0;
-                for (int oof = 7; oof >= 1; oof--) {
+                for (int i = 1; i <= 7; i++) {
+                    int errors = 0;
+                    for (int oof = 7; oof >= 1; oof--) {
 
-                    System.out.print(oof + " ");
+                        System.out.print(oof + " ");
 
-                    Thread.sleep(delay1 + Actions.randomDelay(10, 300));
+                        Thread.sleep(delay1 + Actions.randomDelay(10, 300));
 
-                    try {
-                        if (!driver.findElement(By.xpath("/html/body/div[4]/div[2]/div/article/div[3]/section[1]/span[1]/button")).getSize().equals(0)) {
-                            action.likePost();
+                        try {
+                            if (!driver.findElement(By.xpath("/html/body/div[4]/div[2]/div/article/div[3]/section[1]/span[1]/button")).getSize().equals(0)) {
+                                action.likePost();
+                            }
+                        } catch (Exception e) {
+                            errors++;
                         }
-                    } catch (Exception e) {
-                        errors++;
+
+                        if (oof == 3) {
+                            try {
+                                action.subPost();
+                                Thread.sleep(delay2);
+                                action.unsubCancel();
+                                Thread.sleep(250);
+                            } catch (Exception e) {
+                            }
+                        }
+
+                        Thread.sleep(delay4 + Actions.randomDelay(10, 300));
+
+                        try {
+                            if (!driver.findElement(By.xpath("/html/body/div[4]/div[1]/div/div/a[2]")).getSize().equals(0)) {
+                                action.nextPost();
+                            }
+                        } catch (Exception e) {
+                        }
+
                     }
 
-                    if(oof == 3) {
+                    if (errors >= 6) {
+                        Thread.sleep(delay1);
                         try {
-                            action.subPost();
-                            Thread.sleep(delay2);
-                            action.unsubCancel();
-                            Thread.sleep(250);
+                            action.nextPost();
                         } catch (Exception e) {
                         }
                     }
 
-                    Thread.sleep(delay4 + Actions.randomDelay(10, 300));
+                    int pauseDelay = Actions.randomDelay(500, 1000) + delay5;
+                    System.out.println("Drinking a bit of coffe for " + pauseDelay + "ms ;)");
 
-                    try {
-                        if (!driver.findElement(By.xpath("/html/body/div[4]/div[1]/div/div/a[2]")).getSize().equals(0)) {
-                            action.nextPost();
-                        }
-                    } catch (Exception e) {
-                    }
-
+                    Thread.sleep(pauseDelay);
                 }
 
-                if (errors >= 6) {
-                    Thread.sleep(delay1);
-                    try {
-                        action.nextPost();
-                    } catch (Exception e) {
-                    }
+                if (yn.equalsIgnoreCase("y")) {
+                    System.out.println("Safe mode !\nSleeping for 10min...");
+                    Thread.sleep(600000);
                 }
 
-                int pauseDelay = Actions.randomDelay(500, 1000) + delay5;
-                System.out.println("Drinking a bit of coffe for " + pauseDelay + "ms ;)");
-
-                Thread.sleep(pauseDelay);
             }
-
-            if(yn.equalsIgnoreCase("y")){
-                System.out.println("Safe mode !\nSleeping for 10min...");
-                Thread.sleep(600000);
-            }
-
         }
+
 
         //Thread.sleep(3000);
         //cleanUp();
