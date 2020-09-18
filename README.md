@@ -15,7 +15,7 @@ Make sure you have Java 8 or higher and chrome ver. 85 (lastest) before starting
 
 ## Running
 
-First download the lastest release [Here](https://github.com/UwU0001/InstaStonks/releases/latest/download/InstaStonks.zip)
+First download the lastest release [Here](https://github.com/UwUDev/InstaStonks/releases/latest/download/InstaStonks.zip)
 
 Unzip the files to get this result
 
@@ -41,5 +41,5 @@ And just run `start.bat`
 * **UwU#0001** - [GitHub](https://github.com/UwU0001)
 
 ## Contact
-[![Discord](https://discordapp.com/api/guilds/606205735352795146/widget.png)](https://discord.gg/duyyyz3)
+[![Discord](https://discordapp.com/api/guilds/752493878334193674/widget.png)](https://discord.gg/fjzQ9AD)
 [![MIT license](https://img.shields.io/badge/-Telegram-blue.svg)](https://t.me/UwUDev)
