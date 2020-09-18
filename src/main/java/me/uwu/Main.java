@@ -12,27 +12,45 @@ public class Main {
     public static String user = "";
     public static String pass = "";
 
+    private static int delay1 = 1000;
+    private static int delay2 = 2000;
+    private static int delay3 = 3000;
+    private static int delay4 = 2500;
+    private static int delay5 = 12000;
+
     private static final WebDriver driver = new ChromeDriver();
 
     public static void main(String[] args) throws InterruptedException {
 
         Scanner sc = new Scanner(System.in);
 
-        if(args[0].equalsIgnoreCase("--username") || args[0].equalsIgnoreCase("--mail")){
+        /*if(args[0].equalsIgnoreCase("--username") || args[0].equalsIgnoreCase("--mail")){
             user = args[1].toString();
-        }else{
+        }else{*/
             System.out.println("Enter username : ");
             user = sc.nextLine();
-        }
+       // }
 
-        if(args[2].equalsIgnoreCase("--password") || args[2].equalsIgnoreCase("--pass")){
+        /*if(args[2].equalsIgnoreCase("--password") || args[2].equalsIgnoreCase("--pass")){
             pass = args[3].toString();
-        }else{
+        }else{*/
             System.out.println("Enter password : ");
             pass = sc.nextLine();
-        }
+        //}
 
-        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStarting ...");
+        //bruh bruh bruh...
+        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStarting ...");
+
+        System.out.println("Ultra safe mode ? (y/n) : ");
+        String yn = sc.nextLine();
+
+        if(yn.equalsIgnoreCase("y")){
+            delay1 = 2500;
+            delay2 = 4000;
+            delay3 = 4000;
+            delay4 = 4000;
+            delay5 = 18000;
+        }
 
         String tag = null;
         System.setProperty("webdriver.chrome.driver", Vars.CHROME_DRIVER_LOCATION);
@@ -98,7 +116,7 @@ public class Main {
             System.out.println("Switching to #" + tag);
             driver.get("https://www.instagram.com/explore/tags/" + tag + "/");
 
-            Thread.sleep(3000);
+            Thread.sleep(delay3);
 
             action.openLastestPost();
 
@@ -108,7 +126,7 @@ public class Main {
 
                     System.out.print(oof + " ");
 
-                    Thread.sleep(1000 + Actions.randomDelay(10, 300));
+                    Thread.sleep(delay1 + Actions.randomDelay(10, 300));
 
                     try {
                         if (!driver.findElement(By.xpath("/html/body/div[4]/div[2]/div/article/div[3]/section[1]/span[1]/button")).getSize().equals(0)) {
@@ -121,12 +139,14 @@ public class Main {
                     if(oof == 3) {
                         try {
                             action.subPost();
-                            Thread.sleep(2000);
+                            Thread.sleep(delay2);
+                            action.unsubCancel();
+                            Thread.sleep(250);
                         } catch (Exception e) {
                         }
                     }
 
-                    Thread.sleep(2500 + Actions.randomDelay(10, 300));
+                    Thread.sleep(delay4 + Actions.randomDelay(10, 300));
 
                     try {
                         if (!driver.findElement(By.xpath("/html/body/div[4]/div[1]/div/div/a[2]")).getSize().equals(0)) {
@@ -138,18 +158,24 @@ public class Main {
                 }
 
                 if (errors >= 6) {
-                    Thread.sleep(1000);
+                    Thread.sleep(delay1);
                     try {
                         action.nextPost();
                     } catch (Exception e) {
                     }
                 }
 
-                int pauseDelay = Actions.randomDelay(500, 1000) + 12000;
+                int pauseDelay = Actions.randomDelay(500, 1000) + delay5;
                 System.out.println("Drinking a bit of coffe for " + pauseDelay + "ms ;)");
 
                 Thread.sleep(pauseDelay);
             }
+
+            if(yn.equalsIgnoreCase("y")){
+                System.out.println("Safe mode !\nSleeping for 10min...");
+                Thread.sleep(600000);
+            }
+
         }
 
         //Thread.sleep(3000);

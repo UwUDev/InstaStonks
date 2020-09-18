@@ -19,6 +19,9 @@ public class Actions extends PageOBJs {
     @FindBy(xpath = "//*[@id=\"react-root\"]/section/main/article/div[2]/div/div[1]/div[1]/a/div[1]")
     private WebElement lastPostButton;
 
+    @FindBy(xpath = "/html/body/div[5]/div/div/div/div[3]/button[2]")
+    private WebElement unsubCancelButton;
+
     @FindBy(xpath = "/html/body/div[4]/div[2]/div/article/div[3]/section[1]/span[1]/button")
     private WebElement likeButton;
 
@@ -73,6 +76,8 @@ public class Actions extends PageOBJs {
     public void nextPost(){
         this.nextPostButton.click();
     }
+
+    public void unsubCancel(){ try { this.unsubCancelButton.click(); }catch (Exception ignored){} }
 
 
     public static int randomDelay(double min, double max){
