@@ -44,7 +44,7 @@ public class Main {
         //}
 
         //bruh bruh bruh...
-        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStarting ...");
+        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
         System.out.println("Only likes ? (y/n) : ");
         String yn = sc.nextLine();
@@ -53,7 +53,7 @@ public class Main {
             onlyLike = true;
         }
 
-        System.out.println("Ultra safe mode ? (y/n) : ");
+        System.out.println("Ultra safe mode ? (y/n) if you want to use a vps 24h/24h : ");
         yn = sc.nextLine();
 
         if(yn.equalsIgnoreCase("y")){
@@ -71,7 +71,7 @@ public class Main {
         driver.get("https://www.instagram.com/");
         Actions action = new Actions(driver);
 
-        int state = 0;
+        System.out.println("Starting ...");
 
         //cleanUp();
 
