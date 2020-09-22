@@ -15,6 +15,8 @@ public class Main {
     public static String user = "";
     public static String pass = "";
 
+    private static boolean onlyLike = false;
+
     private static int delay1 = 1000;
     private static int delay2 = 2000;
     private static int delay3 = 3000;
@@ -44,8 +46,15 @@ public class Main {
         //bruh bruh bruh...
         System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStarting ...");
 
-        System.out.println("Ultra safe mode ? (y/n) : ");
+        System.out.println("Only likes ? (y/n) : ");
         String yn = sc.nextLine();
+
+        if(yn.equalsIgnoreCase("y")){
+            onlyLike = true;
+        }
+
+        System.out.println("Ultra safe mode ? (y/n) : ");
+        yn = sc.nextLine();
 
         if(yn.equalsIgnoreCase("y")){
             delay1 = 2500;
@@ -107,7 +116,7 @@ public class Main {
                             errors++;
                         }
 
-                        if (oof == 3) {
+                        if (oof == 3 && !onlyLike) {
                             try {
                                 action.subPost();
                                 Thread.sleep(delay2);
