@@ -37,12 +37,12 @@
                <font>
                   <Font size="14.0" />
                </font></CheckBox>
-            <Button layoutX="402.0" layoutY="534.0" mnemonicParsing="false" onAction="#dumpThis" prefHeight="51.0" prefWidth="514.0" style="-fx-background-color: #A3BE8C;" text="Go stonks !">
+            <Button layoutX="402.0" layoutY="534.0" mnemonicParsing="false" onAction="#goStonks" prefHeight="51.0" prefWidth="514.0" style="-fx-background-color: #A3BE8C;" text="Go stonks !">
                <font>
                   <Font size="25.0" />
                </font>
             </Button>
-            <Button layoutX="402.0" layoutY="628.0" mnemonicParsing="false" onAction="#cleanThis" prefHeight="51.0" prefWidth="514.0" style="-fx-background-color: #BF616A;" text="Exit.">
+            <Button layoutX="402.0" layoutY="628.0" mnemonicParsing="false" onAction="#exit" prefHeight="51.0" prefWidth="514.0" style="-fx-background-color: #BF616A;" text="Clean Chrome">
                <font>
                   <Font size="25.0" />
                </font>

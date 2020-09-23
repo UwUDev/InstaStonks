@@ -22,7 +22,7 @@ public class Controller {
     public CheckBox rf;
 
     @FXML
-    protected void dumpThis() throws IOException, InterruptedException {
+    protected void goStonks() throws IOException, InterruptedException {
         if(isValidUsername(user)){
             unTxt.setText("Valid username");
             unTxt.setTextFill(Color.web("#A3BE8C"));
@@ -59,8 +59,9 @@ public class Controller {
         }
     }
 
-      public void cleanThis() {
-
+      public void exit() {
+        IGStonks.cleanUp();
+        System.exit(-1);
       }
 
       private static boolean isValidUsername(TextField user) {
