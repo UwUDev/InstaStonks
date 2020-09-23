@@ -1,6 +1,6 @@
 package me.uwu.utils;
 
-import me.uwu.Main;
+import me.uwu.IGStonks;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -36,23 +36,23 @@ public class Actions extends PageOBJs {
     }
 
     public void pasteUsername(){
-        this.usernameField.sendKeys(Main.user);
+        this.usernameField.sendKeys(IGStonks.user);
     }
 
     public void pastePassword(){
-        this.passwordField.sendKeys(Main.pass);
+        this.passwordField.sendKeys(IGStonks.pass);
     }
 
     public void typeUsername(int delay) throws InterruptedException {
-        for (int i = 0; i < Main.user.length(); i++) {
-            this.usernameField.sendKeys(Main.user.substring(i, i+1));
+        for (int i = 0; i < IGStonks.user.length(); i++) {
+            this.usernameField.sendKeys(IGStonks.user.substring(i, i+1));
             Thread.sleep(delay);
         }
     }
 
     public void typePassword(int delay) throws InterruptedException {
-        for (int i = 0; i < Main.pass.length(); i++) {
-            this.passwordField.sendKeys(Main.pass.substring(i, i+1));
+        for (int i = 0; i < IGStonks.pass.length(); i++) {
+            this.passwordField.sendKeys(IGStonks.pass.substring(i, i+1));
             Thread.sleep(delay);
         }
     }

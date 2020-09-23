@@ -10,7 +10,7 @@ import java.util.List;
 public class Tags {
 
     public static String getTagsString() throws IOException {
-        BufferedReader brTest = new BufferedReader(new FileReader("tags.txt"));
+        BufferedReader brTest = new BufferedReader(new FileReader("../tags.txt"));
         return brTest.readLine();
     }
 
