@@ -1,12 +1,17 @@
 package me.uwu;
 
 import me.uwu.utils.Actions;
+import me.uwu.utils.Discord;
 import me.uwu.utils.Tags;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.io.File;
 import java.io.IOException;
+import java.lang.management.ManagementFactory;
+import java.net.URISyntaxException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -28,6 +33,7 @@ public class IGStonks {
 
     public static void goStonks()  throws InterruptedException, IOException {
 
+        Discord.update(-1, user);
 
         if(safeMode){
             delay1 = 2500;
@@ -112,10 +118,8 @@ public class IGStonks {
 
                     if (errors >= 6) {
                         Thread.sleep(delay1);
-                        try {
-                            action.nextPost();
-                        } catch (Exception ignored) {
-                        }
+                        try {action.nextPost();
+                        } catch (Exception ignored) {}
                     }
 
                     int pauseDelay = Actions.randomDelay(500, 1000) + delay5;
@@ -136,7 +140,6 @@ public class IGStonks {
         //Thread.sleep(3000);
         //cleanUp();
     }
-
 
 
     public static void cleanUp(){

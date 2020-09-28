@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import me.uwu.utils.Discord;
 
 public class Main extends Application {
 
@@ -20,6 +21,8 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
+        Discord.startup();
+        Discord.update(-1, null);
         launch(args);
     }
 }

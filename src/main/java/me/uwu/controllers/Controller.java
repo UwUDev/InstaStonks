@@ -9,6 +9,7 @@ import javafx.scene.input.InputMethodTextRun;
 import javafx.scene.paint.Color;
 import me.uwu.IGStonks;
 import java.io.IOException;
+import java.net.URISyntaxException;
 
 public class Controller {
 
@@ -59,9 +60,8 @@ public class Controller {
         }
     }
 
-      public void exit() {
+      public void cleanUp() {
         IGStonks.cleanUp();
-        System.exit(-1);
       }
 
       private static boolean isValidUsername(TextField user) {
