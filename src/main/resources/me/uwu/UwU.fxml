@@ -42,7 +42,7 @@
                   <Font size="25.0" />
                </font>
             </Button>
-            <Button layoutX="384.0" layoutY="630.0" mnemonicParsing="false" onAction="#cmean" prefHeight="51.0" prefWidth="514.0" style="-fx-background-color: #BF616A;" text="Clean Chrome">
+            <Button layoutX="384.0" layoutY="630.0" mnemonicParsing="false" onAction="#cleanUp" prefHeight="51.0" prefWidth="514.0" style="-fx-background-color: #BF616A;" text="Clean Chrome">
                <font>
                   <Font size="25.0" />
                </font>
