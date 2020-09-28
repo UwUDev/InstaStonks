@@ -14,35 +14,35 @@
    <children>
       <Pane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #2E3440;">
          <children>
-            <Label alignment="CENTER" layoutX="430.0" layoutY="60.0" prefHeight="105.0" prefWidth="459.0" text="Insta Stonks" textAlignment="CENTER" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="411.0" layoutY="57.0" prefHeight="105.0" prefWidth="459.0" text="Insta Stonks" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="70.0" />
                </font>
             </Label>
-            <TextField fx:id="user" layoutX="369.0" layoutY="247.0" prefHeight="54.0" prefWidth="581.0" promptText="Enter your username" style="-fx-background-color: #434C5E; -fx-text-inner-color: #ffffff;">
+            <TextField fx:id="user" layoutX="350.0" layoutY="248.0" prefHeight="54.0" prefWidth="581.0" promptText="Enter your username" style="-fx-background-color: #434C5E; -fx-text-inner-color: #ffffff;">
                <font>
                   <Font size="18.0" />
                </font>
             </TextField>
-            <PasswordField fx:id="pass" layoutX="369.0" layoutY="374.0" prefHeight="54.0" prefWidth="581.0" promptText="Enter your password" style="-fx-background-color: #434C5E; -fx-text-inner-color: #ffffff;">
+            <PasswordField fx:id="pass" layoutX="350.0" layoutY="375.0" prefHeight="54.0" prefWidth="581.0" promptText="Enter your password" style="-fx-background-color: #434C5E; -fx-text-inner-color: #ffffff;">
                <font>
                   <Font size="18.0" />
                </font>
             </PasswordField>
-            <CheckBox fx:id="rf" layoutX="440.0" layoutY="465.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="132.0" text="Random Follows" textFill="WHITE">
+            <CheckBox fx:id="rf" layoutX="422.0" layoutY="466.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="132.0" text="Random Follows" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font></CheckBox>
-            <CheckBox fx:id="sm" layoutX="747.0" layoutY="465.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="132.0" selected="true" text="Utra Safe Mode" textFill="WHITE">
+            <CheckBox fx:id="sm" layoutX="724.0" layoutY="466.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="132.0" selected="true" text="Utra Safe Mode" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font></CheckBox>
-            <Button layoutX="402.0" layoutY="534.0" mnemonicParsing="false" onAction="#goStonks" prefHeight="51.0" prefWidth="514.0" style="-fx-background-color: #A3BE8C;" text="Go stonks !">
+            <Button layoutX="384.0" layoutY="539.0" mnemonicParsing="false" onAction="#goStonks" prefHeight="51.0" prefWidth="514.0" style="-fx-background-color: #A3BE8C;" text="Go stonks !">
                <font>
                   <Font size="25.0" />
                </font>
             </Button>
-            <Button layoutX="402.0" layoutY="628.0" mnemonicParsing="false" onAction="#cmean" prefHeight="51.0" prefWidth="514.0" style="-fx-background-color: #BF616A;" text="Clean Chrome">
+            <Button layoutX="384.0" layoutY="630.0" mnemonicParsing="false" onAction="#cmean" prefHeight="51.0" prefWidth="514.0" style="-fx-background-color: #BF616A;" text="Clean Chrome">
                <font>
                   <Font size="25.0" />
                </font>
