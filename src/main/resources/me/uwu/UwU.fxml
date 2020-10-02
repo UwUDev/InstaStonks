@@ -57,6 +57,11 @@
                   <Font size="13.0" />
                </font>
             </Label>
+            <Label fx:id="failTxt" alignment="CENTER" layoutX="489.0" layoutY="162.0" prefHeight="47.0" prefWidth="302.0" textAlignment="CENTER" textFill="#bf616a">
+               <font>
+                  <Font size="40.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
    </children>

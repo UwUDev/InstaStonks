@@ -13,14 +13,19 @@ import java.net.URISyntaxException;
 
 public class Controller {
 
+    public static Controller instance;
+
     public TextField user;
     public PasswordField pass;
 
     public Label unTxt;
     public Label pwTxt;
+    public Label failTxt;
 
     public CheckBox sm;
     public CheckBox rf;
+
+    public Controller(){instance = this;}
 
     @FXML
     protected void goStonks() throws IOException, InterruptedException {
@@ -73,6 +78,10 @@ public class Controller {
 
     private static boolean isValidPassword(TextField pass) {
         return pass.getText().length() >= 7;
+    }
+
+    public void failed(){
+        failTxt.setText("Login failed");
     }
 
     }
