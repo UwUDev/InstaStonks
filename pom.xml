@@ -29,6 +29,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.brunocvcunha.instagram4j</groupId>
+            <artifactId>instagram4j</artifactId>
+            <version>1.14</version>
+        </dependency>
+        <dependency>
             <groupId>com.github.Vatuu</groupId>
             <artifactId>discord-rpc</artifactId>
             <version>1.6.2</version>

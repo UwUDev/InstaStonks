@@ -15,7 +15,7 @@ public class Discord {
     public static void update(int subs, String username) {
 
         if(username == null)
-            username = "Stonking";
+            username = "Stonksing";
 
         DiscordRichPresence rich;
         if (subs < 0) {
