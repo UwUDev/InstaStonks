@@ -2,6 +2,7 @@ package me.uwu;
 
 import me.uwu.utils.Actions;
 import me.uwu.utils.Discord;
+import me.uwu.utils.IGUtils;
 import me.uwu.utils.Tags;
 import org.brunocvcunha.instagram4j.Instagram4j;
 import org.brunocvcunha.instagram4j.requests.InstagramSearchUsernameRequest;
@@ -29,17 +30,20 @@ public class IGStonks {
     private static int delay4 = 2500;
     private static int delay5 = 12000;
 
-    public static void goStonks()  throws InterruptedException, IOException {
+    public static void goStonks() throws InterruptedException, IOException {
 
         Discord.update(-1, user);
 
         Thread.sleep(1000); //c'est pour que le chrome driver soit bien lancé
 
-        instagram = Instagram4j.builder().username(user).password(pass).build();
-        instagram.setup();
-        instagram.login();
+        IGUtils.login(user, pass);
 
         Thread.sleep(1500); //temps de login sinon ca se login sur le truc android et chrome en meme temps et ca nik tout C'EST COMPRIS ALORS CHANGE PAS !
+
+        if(!IGUtils.isValidAccount) {
+            cleanUp();
+            return;
+        }
 
         InstagramSearchUsernameResult selfUser = instagram.sendRequest(new InstagramSearchUsernameRequest(user));
         Discord.update(selfUser.getUser().getFollower_count(), user);
