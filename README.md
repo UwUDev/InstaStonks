@@ -10,7 +10,7 @@ And please, put a star if you liked my work, it costs nothing and it lets me kno
 Make sure you have Java 8 or higher and chrome ver. 85 (lastest) before starting
 
 * Download Java 8 [Here](https://www.java.com/download/)
-* Download chrome [Here](https://www.java.com/download/)
+* Download chrome [Here](https://www.google.com/intl/en_en/chrome/)
 * See your chrome version [Here](https://www.whatismybrowser.com/detect/what-version-of-chrome-do-i-have)
 
 ## Running
