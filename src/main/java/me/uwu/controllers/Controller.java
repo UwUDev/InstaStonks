@@ -1,14 +1,13 @@
 package me.uwu.controllers;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.InputMethodTextRun;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import me.uwu.IGStonks;
+import me.uwu.config.ConfigUtils;
+
 import java.io.IOException;
 import java.net.URISyntaxException;
 
@@ -22,9 +21,12 @@ public class Controller {
     public Label unTxt;
     public Label pwTxt;
     public Label failTxt;
+    public Label plzSelect;
 
     public CheckBox sm;
     public CheckBox rf;
+
+    public ComboBox configs;
 
     public Controller(){instance = this;}
 
@@ -45,6 +47,12 @@ public class Controller {
             pwTxt.setText("Enter valid password...");
             pwTxt.setTextFill(Color.web("#BF616A"));
         }
+
+        System.out.println(configs.getValue());
+
+        if (configs.getValue() == null) plzSelect.setVisible(true);
+        else plzSelect.setVisible(false);
+
 
         if(isValidUsername(user) && isValidPassword(pass)){
             IGStonks.user = user.getText();
@@ -86,6 +94,9 @@ public class Controller {
     }
 
     public void reloadList(MouseEvent mouseEvent) {
-
+        configs.getItems().clear();
+        for (String config : ConfigUtils.getConfigsName()){
+            configs.getItems().add(config);
+        }
     }
 }

@@ -55,12 +55,12 @@
                   <Font size="25.0" />
                </font>
             </Button>
-            <Label fx:id="unTxt" alignment="CENTER" layoutX="584.0" layoutY="201.0" prefHeight="19.0" prefWidth="150.0" textAlignment="CENTER" textFill="WHITE">
+            <Label fx:id="unTxt" alignment="CENTER" layoutX="566.0" layoutY="201.0" prefHeight="19.0" prefWidth="150.0" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="13.0" />
                </font>
             </Label>
-            <Label fx:id="pwTxt" alignment="CENTER" layoutX="585.0" layoutY="335.0" prefHeight="19.0" prefWidth="150.0" textAlignment="CENTER" textFill="WHITE">
+            <Label fx:id="pwTxt" alignment="CENTER" layoutX="565.0" layoutY="341.0" prefHeight="19.0" prefWidth="150.0" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="13.0" />
                </font>
@@ -70,7 +70,12 @@
                   <Font size="40.0" />
                </font>
             </Label>
-            <ComboBox fx:id="configs" layoutX="565.0" layoutY="469.0" prefWidth="150.0" promptText="Select a config" onMouseClicked="#reloadList"/>
+            <ComboBox fx:id="configs" layoutX="565.0" layoutY="469.0" onMouseClicked="#reloadList" prefWidth="150.0" promptText="Select a config" style="-fx-background-color: #434C5E; -fx-text-inner-color: #ffffff; -fx-alignment: center;" />
+            <Label fx:id="plzSelect" alignment="CENTER" layoutX="543.0" layoutY="441.0" prefHeight="19.0" prefWidth="195.0" text="Please select a config..." textAlignment="CENTER" textFill="#bf616a" visible="false">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
    </children>
