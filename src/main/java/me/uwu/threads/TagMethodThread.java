@@ -97,7 +97,7 @@ public class TagMethodThread implements Runnable {
                         try {Thread.sleep(IGStonks.delay1);} catch (InterruptedException e) {e.printStackTrace();}
 
                         try {
-                            if (!chrome.findElement(By.xpath("/html/body/div[4]/div[2]/div/article/div[3]/section[1]/span[1]/button")).getSize().equals(0)) {
+                            if (!chrome.findElement(By.xpath("/html/body/div[5]/div[2]/div/article/div[3]/section[1]/span[1]/button")).getSize().equals(0)) {
                                 action.likePost();
                             }
                         } catch (Exception e) {
@@ -117,10 +117,10 @@ public class TagMethodThread implements Runnable {
                         try {Thread.sleep(IGStonks.delay4);} catch (InterruptedException e) {e.printStackTrace();}
 
                         try {
-                            if (!chrome.findElement(By.xpath("/html/body/div[4]/div[1]/div/div/a[2]")).getSize().equals(0)) {
+                            if (!chrome.findElement(By.xpath("/html/body/div[5]/div[1]/div/div/a[2]")).getSize().equals(0)) {
                                 action.nextPost();
                             }
-                        } catch (Exception e) {
+                        } catch (Exception e) {e.printStackTrace();
                         }
 
                     }
@@ -128,7 +128,7 @@ public class TagMethodThread implements Runnable {
                     if (errors >= 6) {
                         try {Thread.sleep(IGStonks.delay1);} catch (InterruptedException e) {e.printStackTrace();}
                         try {action.nextPost();
-                        } catch (Exception ignored) {}
+                        } catch (Exception ignored) {ignored.printStackTrace();}
                     }
 
                     InstagramSearchUsernameResult selfUser2 = null;
