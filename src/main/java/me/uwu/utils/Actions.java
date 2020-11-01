@@ -22,13 +22,13 @@ public class Actions extends PageOBJs {
     @FindBy(xpath = "/html/body/div[5]/div/div/div/div[3]/button[2]")
     private WebElement unsubCancelButton;
 
-    @FindBy(xpath = "/html/body/div[4]/div[2]/div/article/div[3]/section[1]/span[1]/button")
+    @FindBy(xpath = "/html/body/div[5]/div[2]/div/article/div[3]/section[1]/span[1]/button")
     private WebElement likeButton;
 
-    @FindBy(xpath = "/html/body/div[4]/div[1]/div/div/a[2]")
+    @FindBy(xpath = "/html/body/div[5]/div[1]/div/div/a[2]")
     private WebElement nextPostButton;
 
-    @FindBy(xpath = "/html/body/div[4]/div[2]/div/article/header/div[2]/div[1]/div[2]/button")
+    @FindBy(xpath = "/html/body/div[5]/div[2]/div/article/header/div[2]/div[1]/div[2]/button")
     private WebElement subButton;
 
     public Actions(WebDriver driver) {
