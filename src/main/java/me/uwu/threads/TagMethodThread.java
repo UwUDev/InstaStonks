@@ -26,13 +26,14 @@ public class TagMethodThread implements Runnable {
 
     @Override
     public void run() {
-        if(IGStonks.safeMode){
+        /*if(IGStonks.safeMode){
             IGStonks.delay1 = 2500;
             IGStonks.delay2 = 4000;
             IGStonks.delay3 = 4000;
             IGStonks.delay4 = 4000;
             IGStonks.delay5 = 18000;
-        }
+            IGStonks.delay6 = 600000;
+        }*/
 
         List<String> tags = null;
         try {
@@ -84,7 +85,7 @@ public class TagMethodThread implements Runnable {
 
                 chrome.get("https://www.instagram.com/explore/tags/" + tag);
 
-                try {Thread.sleep(IGStonks.delay3);} catch (InterruptedException e) {e.printStackTrace();}
+                try {Thread.sleep(IGStonks.delays[2]);} catch (InterruptedException e) {e.printStackTrace();}
 
                 action.openLastestPost();
 
@@ -94,7 +95,7 @@ public class TagMethodThread implements Runnable {
 
                         System.out.print(oof + " ");
 
-                        try {Thread.sleep(IGStonks.delay1);} catch (InterruptedException e) {e.printStackTrace();}
+                        try {Thread.sleep(IGStonks.delays[0]);} catch (InterruptedException e) {e.printStackTrace();}
 
                         try {
                             if (!chrome.findElement(By.xpath("/html/body/div[5]/div[2]/div/article/div[3]/section[1]/span[1]/button")).getSize().equals(0)) {
@@ -107,14 +108,14 @@ public class TagMethodThread implements Runnable {
                         if (oof == 3 && !IGStonks.onlyLike) {
                             try {
                                 action.subPost();
-                                Thread.sleep(IGStonks.delay2);
+                                Thread.sleep(IGStonks.delays[1]);
                                 action.unsubCancel();
                                 Thread.sleep(250);
                             } catch (Exception e) {
                             }
                         }
 
-                        try {Thread.sleep(IGStonks.delay4);} catch (InterruptedException e) {e.printStackTrace();}
+                        try {Thread.sleep(IGStonks.delays[4]);} catch (InterruptedException e) {e.printStackTrace();}
 
                         try {
                             if (!chrome.findElement(By.xpath("/html/body/div[5]/div[1]/div/div/a[2]")).getSize().equals(0)) {
@@ -126,7 +127,7 @@ public class TagMethodThread implements Runnable {
                     }
 
                     if (errors >= 6) {
-                        try {Thread.sleep(IGStonks.delay1);} catch (InterruptedException e) {e.printStackTrace();}
+                        try {Thread.sleep(IGStonks.delays[0]);} catch (InterruptedException e) {e.printStackTrace();}
                         try {action.nextPost();
                         } catch (Exception ignored) {ignored.printStackTrace();}
                     }
@@ -139,16 +140,13 @@ public class TagMethodThread implements Runnable {
                         e.printStackTrace();
                     }
 
-                    int pauseDelay = Actions.randomDelay(500, 1000) + IGStonks.delay5;
+                    int pauseDelay = Actions.randomDelay(500, 1000) + IGStonks.delays[4];
                     System.out.println("Drinking a bit of coffee for " + pauseDelay + "ms ;)");
 
                     try {Thread.sleep(pauseDelay);} catch (InterruptedException e) {e.printStackTrace();}
                 }
 
-                if (IGStonks.safeMode) {
-                    System.out.println("Safe mode !\nSleeping for 10min...");
-                    try {Thread.sleep(600000);} catch (InterruptedException e) {e.printStackTrace();}
-                }
+                    try {Thread.sleep(IGStonks.delays[5]);} catch (InterruptedException e) {e.printStackTrace();}
 
             }
         }

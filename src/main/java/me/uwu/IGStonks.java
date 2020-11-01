@@ -26,11 +26,7 @@ public class IGStonks {
     public static boolean onlyLike = false;
     public static boolean safeMode = true;
 
-    public static int delay1 = 1000;
-    public static int delay2 = 2000;
-    public static int delay3 = 3000;
-    public static int delay4 = 2500;
-    public static int delay5 = 12000;
+    public static int[] delays = new int[]{1000, 2000, 3000, 2500, 12000, 0};
 
     public static void goStonks() throws InterruptedException, IOException {
         /*Controller controller = new Controller();

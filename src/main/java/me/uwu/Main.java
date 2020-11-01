@@ -22,7 +22,8 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
-        ConfigUtils.setupConfigs();
+        try {ConfigUtils.setupConfigs();}catch (Exception ignored){}
+
         ConfigUtils.getConfigsName();
         Discord.startup();
         Discord.update(-1, null);
