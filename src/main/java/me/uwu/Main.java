@@ -23,6 +23,7 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         ConfigUtils.setupConfigs();
+        ConfigUtils.getConfigsName();
         Discord.startup();
         Discord.update(-1, null);
         launch(args);
