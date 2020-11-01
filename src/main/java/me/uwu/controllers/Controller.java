@@ -6,6 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.InputMethodTextRun;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import me.uwu.IGStonks;
 import java.io.IOException;
@@ -84,4 +85,7 @@ public class Controller {
         failTxt.setText("Login failed");
     }
 
+    public void reloadList(MouseEvent mouseEvent) {
+
     }
+}

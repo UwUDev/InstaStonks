@@ -70,7 +70,7 @@
                   <Font size="40.0" />
                </font>
             </Label>
-            <ComboBox layoutX="565.0" layoutY="469.0" prefWidth="150.0" promptText="Select a config" />
+            <ComboBox fx:id="configs" layoutX="565.0" layoutY="469.0" prefWidth="150.0" promptText="Select a config" onMouseClicked="#reloadList"/>
          </children>
       </Pane>
    </children>
