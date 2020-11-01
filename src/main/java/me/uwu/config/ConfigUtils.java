@@ -2,6 +2,9 @@ package me.uwu.config;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import me.uwu.IGStonks;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -11,6 +14,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class ConfigUtils {
 
@@ -62,6 +67,28 @@ public class ConfigUtils {
             System.out.println(oof);
         }
         return result;
+    }
+
+    public static void setConfig(String name){
+        String path = "config/" + name +".OwO";
+        String content = null;
+
+        try (Stream<String> lines = Files.lines(Paths.get(path))) {
+            content = lines.collect(Collectors.joining(System.lineSeparator()));
+            System.out.println(content);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        JSONObject obj = new JSONObject(content);
+        JSONArray jsonArray = obj.getJSONArray("method_delays");
+        ArrayList<Integer> i = new ArrayList<Integer>();
+
+        int oof = 0;
+        for (Object j : jsonArray){
+            i.add(jsonArray.getInt(oof));
+        }
+        //IGStonks.delays = i.toArray().;
     }
 
     private static ConfigObj getBaseConfig() {

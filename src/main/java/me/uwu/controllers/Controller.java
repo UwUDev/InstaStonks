@@ -1,17 +1,30 @@
 package me.uwu.controllers;
 
+import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.InputMethodTextRun;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import me.uwu.IGStonks;
+import me.uwu.Main;
 import me.uwu.config.ConfigUtils;
 
+import javax.annotation.Resources;
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class Controller {
+public class Controller implements Initializable {
 
     public static Controller instance;
 
@@ -27,8 +40,20 @@ public class Controller {
     public CheckBox rf;
 
     public ComboBox configs;
+    public ImageView imgStonks;
 
     public Controller(){instance = this;}
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        System.out.println("loaded");
+        try {
+            imgStonks.setImage(Main.icon);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+    }
 
     @FXML
     protected void goStonks() throws IOException, InterruptedException {
@@ -70,6 +95,7 @@ public class Controller {
                 IGStonks.safeMode = false;
             }
 
+            ConfigUtils.setConfig(configs.getValue().toString());
             IGStonks.goStonks();
         }
     }
@@ -79,10 +105,10 @@ public class Controller {
       }
 
       private static boolean isValidUsername(TextField user) {
-        String u = user.getText();
-          if(u.length() >= 3 && !u.contains("%") && !u.contains(",") && !u.contains("#") && !u.contains("µ") && !u.contains("²") && !u.contains("°"))
-          return true;
-          else return false;
+         String u = user.getText();
+            if(u.length() >= 3 && !u.contains("%") && !u.contains(",") && !u.contains("#") && !u.contains("µ") && !u.contains("²") && !u.contains("°"))
+             return true;
+             else return false;
       }
 
     private static boolean isValidPassword(TextField pass) {

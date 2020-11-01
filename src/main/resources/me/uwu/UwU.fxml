@@ -6,6 +6,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
@@ -22,7 +23,7 @@
    <children>
       <Pane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #2E3440;">
          <children>
-            <Label alignment="CENTER" layoutX="411.0" layoutY="57.0" prefHeight="105.0" prefWidth="459.0" text="Insta Stonks" textAlignment="CENTER" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="369.0" layoutY="57.0" prefHeight="105.0" prefWidth="459.0" text="Insta Stonks" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="70.0" />
                </font>
@@ -76,6 +77,7 @@
                   <Font size="13.0" />
                </font>
             </Label>
+            <ImageView fx:id="imgStonks" fitHeight="100.0" fitWidth="100.0" layoutX="814.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </Pane>
    </children>
