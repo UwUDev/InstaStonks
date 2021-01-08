@@ -1,26 +1,17 @@
 package me.uwu.controllers;
 
-import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.InputMethodTextRun;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import me.uwu.IGStonks;
 import me.uwu.Main;
 import me.uwu.config.ConfigUtils;
+import me.uwu.utils.LatestUtils;
 
-import javax.annotation.Resources;
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -53,6 +44,11 @@ public class Controller implements Initializable {
             e.printStackTrace();
         }
 
+        try {
+            user.setText(LatestUtils.getUsername());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -75,27 +71,19 @@ public class Controller implements Initializable {
 
         System.out.println(configs.getValue());
 
-        if (configs.getValue() == null) plzSelect.setVisible(true);
-        else plzSelect.setVisible(false);
+        plzSelect.setVisible(configs.getValue() == null);
 
 
         if(isValidUsername(user) && isValidPassword(pass)){
             IGStonks.user = user.getText();
             IGStonks.pass = pass.getText();
 
-            if(rf.isSelected()){
-                IGStonks.onlyLike = false;
-            } else {
-                IGStonks.onlyLike = true;
-            }
+            IGStonks.onlyLike = !rf.isSelected();
 
-            if(sm.isSelected()){
-                IGStonks.safeMode = true;
-            } else {
-                IGStonks.safeMode = false;
-            }
+            IGStonks.safeMode = sm.isSelected();
 
-            ConfigUtils.setConfig(configs.getValue().toString());
+            //ConfigUtils.setConfig(configs.getValue().toString());
+            LatestUtils.saveLatest(user.getText());
             IGStonks.goStonks();
         }
     }
@@ -106,9 +94,7 @@ public class Controller implements Initializable {
 
       private static boolean isValidUsername(TextField user) {
          String u = user.getText();
-            if(u.length() >= 3 && !u.contains("%") && !u.contains(",") && !u.contains("#") && !u.contains("µ") && !u.contains("²") && !u.contains("°"))
-             return true;
-             else return false;
+          return u.length() >= 3 && !u.contains("%") && !u.contains(",") && !u.contains("#") && !u.contains("µ") && !u.contains("²") && !u.contains("°");
       }
 
     private static boolean isValidPassword(TextField pass) {

@@ -2,7 +2,6 @@ package me.uwu.config;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import me.uwu.IGStonks;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -48,7 +47,7 @@ public class ConfigUtils {
     }
 
     public static ArrayList<String> getConfigsName(){
-        ArrayList<String> result = new ArrayList<String>();
+        ArrayList<String> result = new ArrayList<>();
         try {
             File f = new File("config");
 
@@ -82,7 +81,7 @@ public class ConfigUtils {
 
         JSONObject obj = new JSONObject(content);
         JSONArray jsonArray = obj.getJSONArray("method_delays");
-        ArrayList<Integer> i = new ArrayList<Integer>();
+        ArrayList<Integer> i = new ArrayList<>();
 
         int oof = 0;
         for (Object j : jsonArray){

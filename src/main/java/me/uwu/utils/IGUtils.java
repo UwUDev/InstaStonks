@@ -11,7 +11,7 @@ public class IGUtils {
 
     public static boolean isValidAccount = false;
 
-    public static void login (String user, String pass) throws IOException, InterruptedException {
+    public static void login (String user, String pass) throws IOException {
         IGStonks.instagram = Instagram4j.builder().username(user).password(pass).build();
         IGStonks.instagram.setup();
         IGStonks.instagram.login();
@@ -26,6 +26,4 @@ public class IGUtils {
             IGStonks.cleanUp();
         }
     }
-
-
 }
