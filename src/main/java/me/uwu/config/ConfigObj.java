@@ -1,12 +1,16 @@
 package me.uwu.config;
 
 public class ConfigObj {
+
+    public ConfigObj(){}
+
     public int method_type;
 
-    public int[] method_delays;
+    public int[] delays;
 
     public boolean always_working;
     public boolean auto_likes;
+    public boolean auto_sub;
     public boolean auto_follows;
     public boolean auto_commments;
     public boolean randomize_tags;
@@ -21,7 +25,4 @@ public class ConfigObj {
     public String[] tags_to_avoid;
     public String[] comments;
     public String[] whitelist;
-    
-    
-
 }

@@ -1,19 +1,15 @@
 package me.uwu;
 
-import me.uwu.controllers.Controller;
 import me.uwu.threads.TagMethodThread;
-import me.uwu.utils.Actions;
 import me.uwu.utils.Discord;
 import me.uwu.utils.IGUtils;
-import me.uwu.utils.Tags;
 import org.brunocvcunha.instagram4j.Instagram4j;
 import org.brunocvcunha.instagram4j.requests.InstagramSearchUsernameRequest;
 import org.brunocvcunha.instagram4j.requests.payload.InstagramSearchUsernameResult;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+
 import java.io.IOException;
-import java.util.List;
 
 public class IGStonks {
 
@@ -49,7 +45,7 @@ public class IGStonks {
             return;
         }
 
-        Runnable r = new TagMethodThread(chrome);
+        Runnable r = new TagMethodThread(chrome, Vars.config);
         new Thread(r).start();
     }
 

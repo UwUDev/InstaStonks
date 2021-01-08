@@ -2,6 +2,8 @@ package me.uwu.threads;
 
 import me.uwu.IGStonks;
 import me.uwu.Vars;
+import me.uwu.config.ConfigObj;
+import me.uwu.config.ConfigUtils;
 import me.uwu.utils.Actions;
 import me.uwu.utils.Discord;
 import me.uwu.utils.Tags;
@@ -16,35 +18,20 @@ import java.util.List;
 public class TagMethodThread implements Runnable {
     public WebDriver chrome;
     private Thread thread;
-    /*Runnable runnable = new MonTraitement();
-    Thread thread = new Thread(runnable);
-      thread.start();*/
+    private int[] delays;
+    private ConfigObj cfg;
 
-    public TagMethodThread(WebDriver chrome){
+    public TagMethodThread(WebDriver chrome, String config){
         this.chrome = chrome;
+        this.cfg = ConfigUtils.getConfig(config);
     }
 
     @Override
     public void run() {
-        /*if(IGStonks.safeMode){
-            IGStonks.delay1 = 2500;
-            IGStonks.delay2 = 4000;
-            IGStonks.delay3 = 4000;
-            IGStonks.delay4 = 4000;
-            IGStonks.delay5 = 18000;
-            IGStonks.delay6 = 600000;
-        }*/
-
-        List<String> tags = null;
-        try {
-            tags = Tags.getTags();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
         System.setProperty("webdriver.chrome.driver", Vars.CHROME_DRIVER_LOCATION);
 
-        chrome.get("https://www.instagram.com/");
+        chrome.get(Vars.BASE_URL);
         Actions action = new Actions(chrome);
 
         System.out.println("Starting ...");
@@ -79,13 +66,13 @@ public class TagMethodThread implements Runnable {
 
         while (true) {
 
-            for (String tag : tags) {
+            for (String tag : cfg.tags) {
 
                 System.out.println("Switching to #" + tag);
 
                 chrome.get("https://www.instagram.com/explore/tags/" + tag);
 
-                try {Thread.sleep(IGStonks.delays[2]);} catch (InterruptedException e) {e.printStackTrace();}
+                try {Thread.sleep(cfg.delays[2]);} catch (InterruptedException e) {e.printStackTrace();}
 
                 action.openLastestPost();
 
@@ -95,8 +82,9 @@ public class TagMethodThread implements Runnable {
 
                         System.out.print(oof + " ");
 
-                        try {Thread.sleep(IGStonks.delays[0]);} catch (InterruptedException e) {e.printStackTrace();}
+                        try {Thread.sleep(cfg.delays[0]);} catch (InterruptedException e) {e.printStackTrace();}
 
+                        if(cfg.auto_likes)
                         try {
                             if (!chrome.findElement(By.xpath("/html/body/div[5]/div[2]/div/article/div[3]/section[1]/span[1]/button")).getSize().equals(0)) {
                                 action.likePost();
@@ -105,17 +93,15 @@ public class TagMethodThread implements Runnable {
                             errors++;
                         }
 
-                        if (oof == 3 && !IGStonks.onlyLike) {
+                        if (oof == 3 && !cfg.auto_sub)
                             try {
                                 action.subPost();
-                                Thread.sleep(IGStonks.delays[1]);
+                                Thread.sleep(cfg.delays[1]);
                                 action.unsubCancel();
                                 Thread.sleep(250);
-                            } catch (Exception e) {
-                            }
-                        }
+                            } catch (Exception ignored) {}
 
-                        try {Thread.sleep(IGStonks.delays[4]);} catch (InterruptedException e) {e.printStackTrace();}
+                        try {Thread.sleep(cfg.delays[4]);} catch (InterruptedException e) {e.printStackTrace();}
 
                         try {
                             if (!chrome.findElement(By.xpath("/html/body/div[5]/div[1]/div/div/a[2]")).getSize().equals(0)) {
@@ -127,12 +113,12 @@ public class TagMethodThread implements Runnable {
                     }
 
                     if (errors >= 6) {
-                        try {Thread.sleep(IGStonks.delays[0]);} catch (InterruptedException e) {e.printStackTrace();}
+                        try {Thread.sleep(cfg.delays[0]);} catch (InterruptedException e) {e.printStackTrace();}
                         try {action.nextPost();
                         } catch (Exception ignored) {ignored.printStackTrace();}
                     }
 
-                    InstagramSearchUsernameResult selfUser2 = null;
+                    InstagramSearchUsernameResult selfUser2;
                     try {
                         selfUser2 = IGStonks.instagram.sendRequest(new InstagramSearchUsernameRequest(IGStonks.user));
                         Discord.update(selfUser2.getUser().getFollower_count(), IGStonks.user);
@@ -140,13 +126,13 @@ public class TagMethodThread implements Runnable {
                         e.printStackTrace();
                     }
 
-                    int pauseDelay = Actions.randomDelay(500, 1000) + IGStonks.delays[4];
+                    int pauseDelay = Actions.randomDelay(500, 1000) + cfg.delays[4];
                     System.out.println("Drinking a bit of coffee for " + pauseDelay + "ms ;)");
 
                     try {Thread.sleep(pauseDelay);} catch (InterruptedException e) {e.printStackTrace();}
                 }
 
-                    try {Thread.sleep(IGStonks.delays[5]);} catch (InterruptedException e) {e.printStackTrace();}
+                    try {Thread.sleep(cfg.delays[5]);} catch (InterruptedException e) {e.printStackTrace();}
 
             }
         }

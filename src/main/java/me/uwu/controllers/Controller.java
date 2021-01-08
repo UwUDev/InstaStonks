@@ -8,6 +8,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import me.uwu.IGStonks;
 import me.uwu.Main;
+import me.uwu.Vars;
 import me.uwu.config.ConfigUtils;
 import me.uwu.utils.LatestUtils;
 
@@ -84,6 +85,8 @@ public class Controller implements Initializable {
 
             //ConfigUtils.setConfig(configs.getValue().toString());
             LatestUtils.saveLatest(user.getText());
+            System.out.println("CFG name = " + configs.getValue().toString());
+            Vars.config = configs.getValue().toString();
             IGStonks.goStonks();
         }
     }
