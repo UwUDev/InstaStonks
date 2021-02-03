@@ -37,7 +37,6 @@ public class ConfigUtils {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
         ConfigObj cfg = getBaseConfig();
-        String json = gson.toJson(cfg);
 
         try (FileWriter writer = new FileWriter("config/Base.OwO")) {
             gson.toJson(cfg, writer);
@@ -84,7 +83,7 @@ public class ConfigUtils {
         ArrayList<Integer> i = new ArrayList<>();
 
         int oof = 0;
-        for (Object j : jsonArray){
+        for (Object ignored : jsonArray){
             i.add(jsonArray.getInt(oof));
         }
         //IGStonks.delays = i.toArray().;
@@ -107,7 +106,7 @@ public class ConfigUtils {
         cfg.method_type = 1;
         cfg.min_max_subs = new int[]{50,250};
         cfg.start_stop_time = new String[]{"00:00", "23:59"};
-        cfg.tags = new String[]{"nature", "art", "instagram", "newyrok", "nail", "cat", "explore", "funny", "food", "dog", "selfie", "fitness", "summer", "cute"};
+        cfg.tags = new String[]{"nature", "art", "instagram", "newyork", "nail", "cat", "explore", "funny", "food", "dog", "selfie", "fitness", "summer", "cute"};
         cfg.tags_to_avoid = new String[]{"nude", "porn"};
         cfg.whitelist = new String[]{"github", "jetbrains"};
 
@@ -132,7 +131,7 @@ public class ConfigUtils {
         ArrayList<Integer> i = new ArrayList<>();
 
         int oof = 0;
-        for (Object j : jsonArray){
+        for (Object ignored : jsonArray){
             i.add(jsonArray.getInt(oof));
             oof++;
         }
@@ -141,7 +140,7 @@ public class ConfigUtils {
         JSONArray jsonArrayComments = obj.getJSONArray("comments");
         ArrayList<String> i2 = new ArrayList<>();
         int oof2 = 0;
-        for (Object j : jsonArrayComments){
+        for (Object ignored : jsonArrayComments){
             i2.add(jsonArrayComments.getString(oof2));
             oof2++;
         }
@@ -150,7 +149,7 @@ public class ConfigUtils {
         JSONArray jsonArray3 = obj.getJSONArray("min_max_subs");
         ArrayList<Integer> i3 = new ArrayList<>();
         int oof3 = 0;
-        for (Object j : jsonArray3){
+        for (Object ignored : jsonArray3){
             i3.add(jsonArray3.getInt(oof3));
             oof3++;
         }
@@ -159,7 +158,7 @@ public class ConfigUtils {
         JSONArray jsonArrayTags = obj.getJSONArray("tags");
         ArrayList<String> i5 = new ArrayList<>();
         int oof5 = 0;
-        for (Object j : jsonArrayTags){
+        for (Object ignored : jsonArrayTags){
             i5.add(jsonArrayTags.getString(oof5));
             oof5++;
         }
@@ -168,17 +167,17 @@ public class ConfigUtils {
         JSONArray jsonArray4 = obj.getJSONArray("start_stop_time");
         ArrayList<String> i4 = new ArrayList<>();
         int oof4 = 0;
-        for (Object j : jsonArray4){
+        for (Object ignored : jsonArray4){
             i4.add(jsonArray4.getString(oof4));
             oof4++;
         }
         String[] start_stop_time = {i4.get(0), i4.get(1)};
 
-        JSONArray jsonArraytags_to_avoid = obj.getJSONArray("tags_to_avoid");
+        JSONArray jsonArrayTagsToAvoid = obj.getJSONArray("tags_to_avoid");
         ArrayList<String> i6 = new ArrayList<>();
         int oof6 = 0;
-        for (Object j : jsonArraytags_to_avoid){
-            i6.add(jsonArraytags_to_avoid.getString(oof6));
+        for (Object ignored : jsonArrayTagsToAvoid){
+            i6.add(jsonArrayTagsToAvoid.getString(oof6));
             oof6++;
         }
         String[] tags_to_avoid = i6.toArray(new String[0]);
@@ -186,7 +185,7 @@ public class ConfigUtils {
         JSONArray jsonArrayWhiteList = obj.getJSONArray("whitelist");
         ArrayList<String> i7 = new ArrayList<>();
         int oof7 = 0;
-        for (Object j : jsonArrayWhiteList){
+        for (Object ignored : jsonArrayWhiteList){
             i7.add(jsonArrayWhiteList.getString(oof7));
             oof7++;
         }

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="instagram4j-shaded">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/libs/instagram4j-shaded.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

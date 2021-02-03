@@ -1,19 +1,16 @@
 package me.uwu.threads;
 
+import com.github.instagram4j.instagram4j.requests.users.UsersInfoRequest;
 import me.uwu.IGStonks;
 import me.uwu.Vars;
 import me.uwu.config.ConfigObj;
 import me.uwu.config.ConfigUtils;
 import me.uwu.utils.Actions;
 import me.uwu.utils.Discord;
-import me.uwu.utils.Tags;
-import org.brunocvcunha.instagram4j.requests.InstagramSearchUsernameRequest;
-import org.brunocvcunha.instagram4j.requests.payload.InstagramSearchUsernameResult;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import java.io.IOException;
-import java.util.List;
 
 public class TagMethodThread implements Runnable {
     public WebDriver chrome;
@@ -118,13 +115,10 @@ public class TagMethodThread implements Runnable {
                         } catch (Exception ignored) {ignored.printStackTrace();}
                     }
 
-                    InstagramSearchUsernameResult selfUser2;
-                    try {
-                        selfUser2 = IGStonks.instagram.sendRequest(new InstagramSearchUsernameRequest(IGStonks.user));
-                        Discord.update(selfUser2.getUser().getFollower_count(), IGStonks.user);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+                    UsersInfoRequest req = new UsersInfoRequest(IGStonks.instagram.getSelfProfile().getPk());
+                    IGStonks.instagram.sendRequest(req).thenAccept(userResponse -> {
+                        Discord.update(userResponse.getUser().getFollower_count(), IGStonks.user);
+                    });
 
                     int pauseDelay = Actions.randomDelay(500, 1000) + cfg.delays[4];
                     System.out.println("Drinking a bit of coffee for " + pauseDelay + "ms ;)");
